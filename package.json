@@ -1,0 +1,20 @@
+{
+  "name": "simple_webapp",
+  "version": "1.0.0",
+  "description": "Simple Web application that changes display text on button click",
+  "main": "server.js",
+  "scripts": {
+    "deploy": "node server.js",
+    "test": "mocha html_page_test"
+  },
+  "author": "Vamsee Mupparapu",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chai-dom": "^1.10.0",
+    "express": "^4.17.1",
+    "jsdom": "^18.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^9.1.2"
+  }
+}
