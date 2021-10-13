@@ -4,7 +4,7 @@
   "description": "Simple Web application that changes display text on button click",
   "main": "server.js",
   "scripts": {
-    "deploy": "node server.js",
+    "start": "node server.js",
     "test": "mocha html_page_test"
   },
   "author": "Vamsee Mupparapu",
