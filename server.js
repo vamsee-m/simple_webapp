@@ -5,7 +5,7 @@ const app = express();
 const port = 80;
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log("Application starting on port " + port);
 });
 
