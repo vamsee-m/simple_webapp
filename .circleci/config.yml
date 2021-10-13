@@ -1,9 +1,11 @@
-# Customized from the 'run_tests_with_npm' sample configuration from https://circleci.com/developer/orbs/orb/circleci/node 
+# Customized from the 'run_tests_with_npm' sample configuration in https://circleci.com/developer/orbs/orb/circleci/node 
+# Also referenced the deployment step configuration in https://circleci.com/blog/continuous-deployment-to-heroku/
 
 version: 2.1
 
 orbs:
   node: circleci/node@4.7
+  heroku: circleci/heroku@0.0.10
 
 jobs:
   build_and_test:
@@ -15,8 +17,9 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
-
+  
 workflows:
   build_and_test:
     jobs:
       - build_and_test
+      - heroku/deploy-via-git
