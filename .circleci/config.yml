@@ -1,5 +1,6 @@
 # Customized from the 'run_tests_with_npm' sample configuration in https://circleci.com/developer/orbs/orb/circleci/node 
 # Also referenced the deployment step configuration in https://circleci.com/blog/continuous-deployment-to-heroku/
+# Snyk orb documentation: https://circleci.com/developer/orbs/orb/snyk/snyk
 
 version: 2.1
 
@@ -9,7 +10,7 @@ orbs:
   snyk: snyk/snyk@1.1.1
 
 jobs:
-  build_and_test:
+  build_test_and_snyk:
     executor:
       name: node/default
       tag: '13.14'
@@ -21,9 +22,9 @@ jobs:
       - snyk/scan
           
 workflows:
-  build_test_deploy:
+  simple_webapp_deploy:
     jobs:
-      - build_and_test
+      - build_test_and_snyk
       - heroku/deploy-via-git:
           requires:
-          - build_and_test
+          - build_test_and_snyk
