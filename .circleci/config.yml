@@ -16,13 +16,16 @@ jobs:
       tag: '13.14'
     steps:
       - checkout
-      - run: mkdir ~/test-results
+      - run: mkdir ~/tests
       - node/install-packages
       - run:
           command: npm run test
+          environment:
+            MOCHA_FILE: ~/tests/test-results.xml
+          when: always
       - snyk/scan
       - store_test_results:
-          path: ~/test-results
+          path: ~/tests
           
 workflows:
   simple_webapp_deploy:

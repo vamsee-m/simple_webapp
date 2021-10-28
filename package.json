@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha html_page_test"
+    "test": "mocha html_page_test --reporter mocha-junit-reporter"
   },
   "author": "Vamsee Mupparapu",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "express": "^4.17.1",
     "jsdom": "^18.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^9.1.2"
+    "mocha": "^9.1.2",
+    "mocha-junit-reporter": "^2.0.2"
   }
 }
