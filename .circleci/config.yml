@@ -16,12 +16,13 @@ jobs:
       tag: '13.14'
     steps:
       - checkout
+      - run: mkdir ~/test-results
       - node/install-packages
       - run:
           command: npm run test
       - snyk/scan
       - store_test_results:
-          path: test-results
+          path: ~/test-results
           
 workflows:
   simple_webapp_deploy:
