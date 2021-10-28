@@ -20,6 +20,8 @@ jobs:
       - run:
           command: npm run test
       - snyk/scan
+      - store_test_results:
+          path: test-results
           
 workflows:
   simple_webapp_deploy:
