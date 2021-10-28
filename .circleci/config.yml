@@ -6,6 +6,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   heroku: circleci/heroku@0.0.10
+  snyk: snyk/snyk@1.1.1
 
 jobs:
   build_and_test:
@@ -17,6 +18,7 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
+      - snyk/scan
           
 workflows:
   build_test_deploy:
