@@ -20,8 +20,8 @@ jobs:
       - run:
           command: npm run test
       - snyk/scan:
-          severity-threshold: medium
-          fail-on-issues: false
+          severity-threshold: high
+          fail-on-issues: true
           monitor-on-build: true
       - store_test_results:
           path: .
