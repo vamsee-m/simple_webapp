@@ -19,7 +19,10 @@ jobs:
       - node/install-packages
       - run:
           command: npm run test
-      - snyk/scan
+      - snyk/scan:
+          severity-threshold: high
+          fail-on-issues: true
+          monitor-on-build: true
       - store_test_results:
           path: .
           
